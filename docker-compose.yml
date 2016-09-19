@@ -1,0 +1,18 @@
+nginx-proxy:
+  container_name: nginx-proxy
+  image: lroguet/rpi-nginx-proxy:latest
+  ports:
+    - "80:80"
+  volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+gogs-server:
+  container_name: gogs-server
+  image: gogs/gogs-rpi
+  environment:
+    - VIRTUAL_HOST=lettuce.mooo.com
+    - VIRTUAL_PORT=3000
+  ports:
+    - "10022:22"
+    - "3000:3000"
+  volumes:
+    - /var/gogs:/data
