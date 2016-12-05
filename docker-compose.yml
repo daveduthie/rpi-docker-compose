@@ -1,4 +1,5 @@
 nginx-proxy:
+  restart: always
   container_name: nginx-proxy
   image: lroguet/rpi-nginx-proxy:latest
   ports:
@@ -6,6 +7,7 @@ nginx-proxy:
   volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
 gogs-server:
+  restart: always
   container_name: gogs-server
   image: gogs/gogs-rpi
   environment:
